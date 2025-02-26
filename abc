@@ -1,0 +1,11 @@
+package model
+
+import "gorm.io/gorm"
+
+type PasswordHistory struct {
+	ID            uint   `gorm:"primaryKey"`
+	Username      string `gorm:"unique;not null"` // FK to User table
+	PrevPassword1 string `gorm:"not null"`
+	PrevPassword2 string `gorm:"not null"`
+	PrevPassword3 string `gorm:"not null"`
+}
