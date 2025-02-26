@@ -9,3 +9,16 @@ type PasswordHistory struct {
 	PrevPassword2 string `gorm:"not null"`
 	PrevPassword3 string `gorm:"not null"`
 }
+
+
+
+
+func SeedDB(db *gorm.DB) {
+	// Auto-migrate the PasswordHistory table
+	err := db.AutoMigrate(&model.PasswordHistory{})
+	if err != nil {
+		log.Fatalf("Migration failed: %v", err)
+	}
+
+	log.Println("Database migration completed successfully!")
+}
